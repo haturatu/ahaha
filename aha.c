@@ -312,8 +312,11 @@ struct Options parseArgs(int argc, char* args[])
 			printf("\n");
 			printf("            \033[1;3;33m$\033[0m MAN_KEEP_FORMATTING=1 COLUMNS=80 man \033[1mahaha\033[0m | ul | \033[1mahaha\033[0m > man-\033[1mahaha\033[0m.html\n");
 			printf("\n");
-			printf("Copyleft \033[1;32mAlexander Matthes\033[0m aka \033[4mZiz\033[0m "AHA_YEAR"\n");
+			printf("Original \033[1;32mAlexander Matthes\033[0m aka \033[4mZiz\033[0m "AHA_YEAR"\n");
 			printf("         \033[5;36mziz@mailbox.org\033[0m\n");
+			printf("         \033[5;36mhttps://github.com/theZiz/aha\033[0m\n");
+			printf("Fork     \033[1;32mhaturatu\033[0m\n");
+			printf("         \033[5;36mtaro@eyes4you.org\033[0m\n");
 			printf("         \033[5;36mhttps://github.com/haturatu/ahaha\033[0m\n");
 			printf("This application is subject to the \033[1;34mMPL1.1\033[0m or \033[1;34mLGPLv2+\033[0m.\n");
 			exit(EXIT_SUCCESS);
