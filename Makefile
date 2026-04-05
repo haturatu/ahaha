@@ -1,5 +1,6 @@
 .PHONY: all clean install
 
+BINNAME?=ahaha
 
 platform := $(shell uname -s)
 
@@ -14,21 +15,21 @@ MANMODE?=644
 
 CFLAGS += -std=c99 -Wall -Wextra
 
-all: aha
+all: $(BINNAME)
 
-aha: aha.c
+$(BINNAME): aha.c
 	$(CC) $(CFLAGS) $(LDFLAGS) $(CPPFLAGS) aha.c -o $@
 
 clean:
-	rm -f aha
+	rm -f $(BINNAME) aha
 
-install: aha
+install: $(BINNAME)
 ifeq ($(platform), Darwin)
 	$(MD) -p $(DESTDIR)$(PREFIX)/bin/
 	$(MD) -p $(DESTDIR)$(MANDIR)/man1/
-	$(INSTALL) -m $(BINMODE) aha $(DESTDIR)$(PREFIX)/bin/aha
-	$(INSTALL) -m $(MANMODE) aha.1 $(DESTDIR)$(MANDIR)/man1/aha.1
+	$(INSTALL) -m $(BINMODE) $(BINNAME) $(DESTDIR)$(PREFIX)/bin/$(BINNAME)
+	$(INSTALL) -m $(MANMODE) aha.1 $(DESTDIR)$(MANDIR)/man1/$(BINNAME).1
 else 
-	$(INSTALL) -D -m $(BINMODE) aha $(DESTDIR)$(PREFIX)/bin/aha
-	$(INSTALL) -D -m $(MANMODE) aha.1 $(DESTDIR)$(MANDIR)/man1/aha.1
+	$(INSTALL) -D -m $(BINMODE) $(BINNAME) $(DESTDIR)$(PREFIX)/bin/$(BINNAME)
+	$(INSTALL) -D -m $(MANMODE) aha.1 $(DESTDIR)$(MANDIR)/man1/$(BINNAME).1
 endif
